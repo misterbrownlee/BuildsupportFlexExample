@@ -1,0 +1,10 @@
+.actionScriptProperties
+.project
+.flexProperties
+.settings/
+bin/*
+bin-debug/*
+.FlexUnitSettings/
+old-buildsupport/
+buildsupport
+build/output/

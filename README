@@ -1,0 +1,28 @@
+Flex Example for Build Support 
+
+README
+
+Usage:
+This is an example Flex project, designed to be used with the https://github.com/tehfoo/buildsupport repository.
+The build.xml file has been written to utilize the importable tasks from buildsupport, providing an example
+of how quickly a standard flex project can implement Ant based build tasks.
+
+Installation:
+YOU MUST REFERENCE THE BUIDSUPPORT LIBRARY PROJECT AT THE ROOT LEVEL OF THIS EXAMPLE.
+
+How:
+1) clone buildsupport into the project root
+1a) to ease use on multiple projects, clone to a tools directory, and symlink into your project root
+2) copy buildsupport/example.build.properties to <project-root}/build/, rename build.properties
+3) modify build.properties to represent your local settings
+4) run ant -projecthelp to see what tasks are available
+5) run any of the ant tasks you would like, and see the results in <project-root/build/output
+
+
+Assumption:
+Most projects follow a simple pattern of a base directory, with source in an src folder, libraries in a libs
+folder, and no drama.  If that's the case, you can set project.dir and flex.home.dir properties, and you 
+should be all set.  If your project's structure is different (more complex), you will probably need to create more 
+specific ant targets or provide custom compiler configuration to make this all work.
+
+See the https://github.com/tehfoo/buildsupport repository documentation for more details

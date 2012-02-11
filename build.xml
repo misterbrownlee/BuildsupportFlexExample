@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="build-project" basedir=".">
+
+  <property file="${basedir}/build/build.properties"/>
+  <import file="${buildsupport.dir}/import/flex-imports.xml"/>
+  
+  <target name="clean" depends="clean-all"/>
+  <target name="build" depends="clean-build, build-flex"/>
+  <target name="test" depends="build, test-flex"/>
+  <target name="package" depends="clean-for-package, test, package-flex"/>
+
+</project>

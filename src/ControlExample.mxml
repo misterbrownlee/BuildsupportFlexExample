@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//
+//  ADOBE SYSTEMS INCORPORATED
+//  Copyright 2008 Adobe Systems Incorporated
+//  All Rights Reserved.
+//
+//  NOTICE: Adobe permits you to use, modify, and distribute this file
+//  in accordance with the terms of the license agreement accompanying it.
+//
+////////////////////////////////////////////////////////////////////////////////
+-->
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark" 
+               xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600" creationComplete="initController()">
+  
+  <fx:Script>
+    <![CDATA[
+      import xd.skool.HVACMock;
+      import xd.skool.EnvironmentController;
+      
+      
+      private var controller:EnvironmentController = new EnvironmentController();
+      private var stub:HVACMock = new HVACMock()
+        private var ticks:int;
+      
+      protected function timerTickHandler():void
+      {
+        trace("click");
+        ticks++
+        stub.setTemperatureTo(temperatureStepper.value);
+        controller.tick();
+        refreshDisplay();
+      }
+
+      private function initController():void
+      {
+        controller.initialize(stub);
+        timerTickHandler();
+      }
+      
+
+      private function refreshDisplay():void
+      {
+        heaterDisplay.text = getStatus(stub.isHeaterOn);
+        coolerDisplay.text = getStatus(stub.isCoolerOn);
+        blowerDisplay.text = getStatus(stub.isBlowerOn);
+        tickCount.text = "" + ticks;
+      }
+      
+
+      private function getStatus(status:Boolean):String
+      {
+        return status ? "ON" : "OFF"
+      }
+    ]]>
+  </fx:Script>
+  
+  <fx:Declarations>
+    <!-- Place non-visual elements (e.g., services, value objects) here -->
+  </fx:Declarations>
+  
+  <s:layout>
+    <s:VerticalLayout paddingLeft="10" paddingTop="10"/>
+  </s:layout>
+  
+  <s:Button id="start" label="TIMER TICK" click="timerTickHandler()" />
+  
+  <s:Label text="current temp" />
+  <s:NumericStepper id="temperatureStepper" minimum="50" maximum="99" value="70" />
+  
+  
+  <mx:HBox>
+    <s:Label text="Timer:" />
+    <s:Label id="time" />
+  </mx:HBox>
+  
+  
+  <mx:HBox>
+    <s:Label text="Heater:" />
+    <s:Label id="heaterDisplay" />
+  </mx:HBox>
+  
+  
+  <mx:HBox>
+    <s:Label text="Cooler:" />
+    <s:Label id="coolerDisplay" />
+  </mx:HBox>
+  
+  
+  
+  <mx:HBox>
+    <s:Label text="Blower" />
+    <s:Label id="blowerDisplay" />
+  </mx:HBox>
+  
+  <mx:HBox>
+    <s:Label text="HIGH TEMP ALARM" visible="{false}" />
+  </mx:HBox>
+  
+  <mx:HBox>
+    <s:Label text="LOW TEMP ALARM"  visible="{false}"/>
+  </mx:HBox>
+  
+  <mx:HBox>
+    <s:Label id="tickCount"/>
+  </mx:HBox>
+    
+  
+</s:Application>
