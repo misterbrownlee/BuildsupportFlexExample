@@ -14,7 +14,7 @@ How:
 1) clone buildsupport into the project root
 1a) to ease use on multiple projects, clone to a tools directory, and symlink into your project root
 2) copy buildsupport/example.build.properties to <project-root}/build/, rename build.properties
-3) modify build.properties to represent your local settings
+3) modify build.properties to represent your local settings (path to flex SDK should be it)
 4) run ant -projecthelp to see what tasks are available
 5) run any of the ant tasks you would like, and see the results in <project-root/build/output
 
