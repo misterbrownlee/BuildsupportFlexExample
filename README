@@ -36,3 +36,14 @@ configuration to make this all work.
 
 See the https://github.com/tehfoo/buildsupport repository documentation for
 more details
+
+
+TROUBLE?
+
+  Q: "[taskdef] Could not load definitions from resource flexTasks.tasks. 
+    It could not be found."
+  A: Most likely your flex.home.dir path in build.properties is set wrong
+  
+  Q: "... /base-macros.xml:59: Problem: failed to create task or type mxmlc
+    Cause: The name is undefined."
+  A: Most likely your flex.home.dir path in build.properties is set wrong  
