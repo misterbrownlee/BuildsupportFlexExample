@@ -29,7 +29,7 @@ How:
 Assumption:
 Most projects follow a simple pattern of a base directory, with source in an
 src folder, libraries in a libs folder, and no drama. If that's the case, you
-can set project.dir and flex.home.dir properties, and you should be all set.
+can set project.name and flex.home.dir properties, and you should be all set.
 If your project's structure is different (more complex), you will probably
 need to create more specific ant targets or provide custom compiler
 configuration to make this all work.

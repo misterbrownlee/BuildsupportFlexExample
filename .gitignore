@@ -2,6 +2,7 @@
 .project
 .flexProperties
 .settings/
+*.iml
 bin/*
 bin-debug/*
 .FlexUnitSettings/

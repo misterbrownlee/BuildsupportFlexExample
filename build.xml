@@ -7,6 +7,7 @@
   <target name="clean" depends="clean-all"/>
   <target name="build" depends="clean-build, build-flex"/>
   <target name="test" depends="build, test-flex"/>
-  <target name="package" depends="clean-for-package, test, package-flex"/>
+  <target name="package" depends="package-flex"/>
+  <target name="deploy" depends="clean, test, build, package"/>
 
 </project>
