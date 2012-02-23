@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="build-project" basedir=".">
+<project name="BuildsupportFlexExamples" basedir="." default="deploy">
 
   <property file="${basedir}/build/build.properties"/>
   <import file="${buildsupport.dir}/import/flex-imports.xml"/>
   
-  <target name="clean" depends="clean-all"/>
-  <target name="build" depends="clean-build, build-flex"/>
-  <target name="test" depends="build, test-flex"/>
-  <target name="package" depends="package-flex"/>
-  <target name="deploy" depends="clean, test, build, package"/>
+  <target name="clean" depends="clean-all">
+    <echo message="BuildsupportFlexExamples :: clean finished."/>
+  </target>
+  
+  <target name="build" depends="clean-build, build-flex">
+    <echo message="BuildsupportFlexExamples :: build finished."/>
+  </target>
+  
+  <target name="test" depends="build, test-flex">
+    <echo message="BuildsupportFlexExamples :: test finished."/>
+  </target>
+  
+  <target name="package" depends="package-flex">
+    <echo message="BuildsupportFlexExamples :: package finished."/>
+  </target>
+  
+  <target name="deploy" depends="clean, test, build, package">
+    <echo message="BuildsupportFlexExamples :: deploy finished."/>
+  </target>
 
 </project>
