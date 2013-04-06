@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="BuildsupportFlexExamples" basedir="." default="deploy">
 
-  <property file="${basedir}/build/build.properties"/>
-  <import file="${buildsupport.dir}/import/flex-imports.xml"/>
-  
-  <target name="clean" depends="clean-all">
-    <echo message="BuildsupportFlexExamples :: clean finished."/>
-  </target>
-  
-  <target name="build" depends="clean-build, build-flex">
-    <echo message="BuildsupportFlexExamples :: build finished."/>
-  </target>
-  
-  <target name="test" depends="build, test-flex">
-    <echo message="BuildsupportFlexExamples :: test finished."/>
-  </target>
-  
-  <target name="package" depends="package-flex">
-    <echo message="BuildsupportFlexExamples :: package finished."/>
-  </target>
-  
-  <target name="deploy" depends="clean, test, build, package">
-    <echo message="BuildsupportFlexExamples :: deploy finished."/>
-  </target>
+    <property file="${basedir}/build/build.properties"/>
+    <import file="${buildsupport.dir}/import/flex-imports.xml"/>
+    <import file="${buildsupport.dir}/target/compile-css-file.xml"/>
+    <import file="${buildsupport.dir}/target/help-list-targets.xml"/>
+
+
+    <target name="help" depends="help-list-targets">
+        <echo message="BuildsupportFlexExamples :: help finished."/>
+    </target>
+
+    <target name="clean" depends="clean-all">
+        <echo message="BuildsupportFlexExamples :: clean finished."/>
+    </target>
+
+    <target name="build" depends="clean-build, build-flex"
+            description="runs buildsupport targets clean-build, build-flex">
+        <echo message="BuildsupportFlexExamples :: build finished."/>
+    </target>
+
+    <target name="css" depends="compile-css-file">
+        <echo message="BuildsupportFlexExamples :: build finished."/>
+    </target>
+
+    <target name="test" depends="build, test-flex">
+        <echo message="BuildsupportFlexExamples :: test finished."/>
+    </target>
+
+    <target name="package" depends="package-flex">
+        <echo message="BuildsupportFlexExamples :: package finished."/>
+    </target>
+
+    <target name="deploy" depends="clean, test, build, package">
+        <echo message="BuildsupportFlexExamples :: deploy finished."/>
+    </target>
 
 </project>

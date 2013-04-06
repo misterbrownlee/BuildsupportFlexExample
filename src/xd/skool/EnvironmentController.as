@@ -12,9 +12,6 @@
 package xd.skool
 {
 
-  import flashx.textLayout.events.UpdateCompleteEvent;
-  import mx.events.CubeEvent;
-
   public class EnvironmentController
   {
     public static const DEVIATION_ALLOWED:int = 5;

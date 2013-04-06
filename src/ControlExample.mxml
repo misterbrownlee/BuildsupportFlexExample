@@ -60,6 +60,8 @@
   <fx:Declarations>
     <!-- Place non-visual elements (e.g., services, value objects) here -->
   </fx:Declarations>
+
+  <fx:Style source="styles/controller.css"/>
   
   <s:layout>
     <s:VerticalLayout paddingLeft="10" paddingTop="10"/>
